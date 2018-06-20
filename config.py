@@ -13,7 +13,6 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Config(object):
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
-
     # SECRET_KEY我作为唯一配置项添加的配置变量是大多数Flask应用程序中的重要组成部分。
     # Flask及其一些扩展使用密钥的值作为加密密钥，用于生成签名或令牌。
     # Flask-WTF扩展使用它来保护网页表单免受名为Cross-Site Request Forgery
@@ -27,7 +26,6 @@ class Config(object):
     # 在开发此应用程序时，安全性要求较低，因此您可以忽略此设置并使用硬编码字符串。
     # 但是，当这个应用程序部署在生产服务器上时，我将在环境中设置一个独特且难以猜测的值，
     # 以便服务器拥有一个别人不知道的安全密钥。
-
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
         'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
