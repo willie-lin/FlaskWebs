@@ -30,7 +30,7 @@ if not app.debug:
         auth = None
         if app.config['MAIL_USERNAME'] or app.config['MAIL_PASSWORD']:
             auth = (app.config['MAIL_USERNAME'], app.config['MAIL_PASSWORD'])
-        secure = ()
+        secure = None
         if app.config['MAIL_USE_TLS']:
             secure = ()
         mail_handler = SMTPHandler(
@@ -54,4 +54,4 @@ if not app.debug:
         app.logger.info('Microblog startup')
 
 
-from app import routes, models
+from app import routes, models, errors
