@@ -21,12 +21,12 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Sign In')
 
 
+# 用户注册表单验证
 class RegistrationForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
-    password2 = PasswordField(
-        'Repeat Password', validators=[DataRequired(), EqualTo('password')])
+    password2 = PasswordField('Repeat Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Register')
 
     def validate_username(self, username):
@@ -40,6 +40,7 @@ class RegistrationForm(FlaskForm):
             raise ValidationError('Please use a different email address.')
 
 
+# 用户详情页修改
 class EditProfileForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     about_me = TextAreaField('About_me', validators=[Length(min=0, max=140)])
@@ -56,6 +57,7 @@ class EditProfileForm(FlaskForm):
                 raise ValidationError('Please use a different username')
 
 
+# 提交表单
 class PostForm(FlaskForm):
     post = TextAreaField('Say something', validators=[DataRequired()])
     submit = SubmitField('Submit')

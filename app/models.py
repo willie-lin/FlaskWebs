@@ -14,13 +14,22 @@ from app import login
 import hashlib
 
 
+# followers = db.Table(
+#     'follows',
+#     db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
+#     db.Column('followed_id', db.Integer, db.ForeignKey('user.id'))
+# )
+
+
+# 关注者模型
 followers = db.Table(
-    'follows',
-    db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
-    db.Column('followed_id', db.Integer, db.ForeignKey('user.id'))
-)
+     'follows',
+     db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
+     db.Column('followed_id', db.Integer, db.ForeignKey('user.id'))
+ )
 
 
+# 用户模型
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
@@ -39,21 +48,25 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return 'User {}>'.format(self.username)
 
+# 设置密码
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
 
+# 校验密码
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
+# 调用网络头像
     def avatar(self, size):
         digest = hashlib.md5(self.email.lower().encode('utf-8')).hexdigest()
-        return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(
-            digest, size)
+        return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(digest, size)
 
+# 关注用户
     def follow(self, user):
         if not self.is_following(user):
             self.followed.append(user)
 
+# 取消关注
     def unfollow(self, user):
         if self.is_following(user):
             self.followed.remove(user)
@@ -61,19 +74,26 @@ class User(UserMixin, db.Model):
     def is_following(self, user):
         return self.followed.filter(followers.c.followed_id == user.id).count() > 0
 
+
+# 获取被关注用户的贴子
     def followed_posts(self):
-        followed = Post.query.join(followers, (followers.c.followed_id == Post.user_id)).filter(
+        # return Post.query.join(
+        #     followers, (followers.c.followed_id == Post.user_id)).filter(
+        #     followers.c.follower_id == self.id).order_by(Post.timestamp.desc()
+        # )
+        followed = Post.query.join(
+            followers, (followers.c.followed_id == Post.user_id)).filter(
             followers.c.follower_id == self.id)
         own = Post.query.filter_by(user_id=self.id)
         return followed.union(own).order_by(Post.timestamp.desc())
 
-            # .order_by(Post.timestamp.desc())
-
+# 用户登录
     @login.user_loader
     def load_user(id):
         return User.query.get(int(id))
 
 
+# 表单模型
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(140))
