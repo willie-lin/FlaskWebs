@@ -10,23 +10,17 @@ from app import db
 from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-from app import login
+from app import login, app
+from time import time
+import jwt
 import hashlib
-
-
-# followers = db.Table(
-#     'follows',
-#     db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
-#     db.Column('followed_id', db.Integer, db.ForeignKey('user.id'))
-# )
-
 
 # 关注者模型
 followers = db.Table(
-     'follows',
-     db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
-     db.Column('followed_id', db.Integer, db.ForeignKey('user.id'))
- )
+    'follows',
+    db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
+    db.Column('followed_id', db.Integer, db.ForeignKey('user.id'))
+)
 
 
 # 用户模型
@@ -48,25 +42,25 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return 'User {}>'.format(self.username)
 
-# 设置密码
+    # 设置密码
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
 
-# 校验密码
+    # 校验密码
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
-# 调用网络头像
+    # 调用网络头像
     def avatar(self, size):
         digest = hashlib.md5(self.email.lower().encode('utf-8')).hexdigest()
         return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(digest, size)
 
-# 关注用户
+    # 关注用户
     def follow(self, user):
         if not self.is_following(user):
             self.followed.append(user)
 
-# 取消关注
+    # 取消关注
     def unfollow(self, user):
         if self.is_following(user):
             self.followed.remove(user)
@@ -74,8 +68,7 @@ class User(UserMixin, db.Model):
     def is_following(self, user):
         return self.followed.filter(followers.c.followed_id == user.id).count() > 0
 
-
-# 获取被关注用户的贴子
+    # 获取被关注用户的贴子
     def followed_posts(self):
         # return Post.query.join(
         #     followers, (followers.c.followed_id == Post.user_id)).filter(
@@ -87,7 +80,23 @@ class User(UserMixin, db.Model):
         own = Post.query.filter_by(user_id=self.id)
         return followed.union(own).order_by(Post.timestamp.desc())
 
-# 用户登录
+    # 获取密码令牌
+    def get_reset_password_token(self, expires_in=60):
+        return jwt.encode(
+            {'reset_password': self.id, 'exp': time() + expires_in},
+            app.config['SECRET_KEY'], algorithm='HS256'
+        ).decode('utf-8')
+
+    @staticmethod
+    def verify_reset_password_token(token):
+        try:
+            id = jwt.decode(token, app.config['SECRET_KEY'],
+                            algorithms=['HS256'])['reset_password']
+        except:
+            return
+        return User.query.get(id)
+
+    # 用户登录
     @login.user_loader
     def load_user(id):
         return User.query.get(int(id))
@@ -102,5 +111,3 @@ class Post(db.Model):
 
     def __repr__(self):
         return '<Post {}>'.format(self.body)
-
-
