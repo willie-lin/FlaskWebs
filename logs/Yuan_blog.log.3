@@ -1,0 +1,111 @@
+2018-10-18 16:49:34,273 INFO: Microblog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:76]
+2018-10-18 16:50:25,987 INFO: Microblog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:76]
+2018-10-18 16:57:09,520 ERROR: Exception on /follow/test [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\PycharmProjects\FlaskWeb\app\routes.py", line 140, in follow
+    user = User.query.filter_by(username == username).first()
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2018-10-18 17:00:14,740 ERROR: Exception on /follow/test [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\PycharmProjects\FlaskWeb\app\routes.py", line 140, in follow
+    user = User.query.filter_by(username == username).first()
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2018-10-18 17:21:04,336 INFO: Microblog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:76]
+2018-10-18 17:22:25,443 INFO: Microblog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:76]
+2018-10-18 17:32:50,820 ERROR: Exception on /follow/nanyuan [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\PycharmProjects\FlaskWeb\app\routes.py", line 140, in follow
+    user = User.query.filter_by(username == username).first()
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2018-10-18 17:39:21,031 INFO: Microblog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:76]
+2018-10-18 17:39:34,315 ERROR: Exception on /user/nanyuan [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\PycharmProjects\FlaskWeb\app\routes.py", line 118, in user
+    next_url=next_url, prev_url=prev_url)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 135, in render_template
+    context, ctx.app)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 117, in _render
+    rv = template.render(context)
+  File "D:\Anaconda3\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "D:\Anaconda3\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "D:\Anaconda3\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Anaconda3\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\PycharmProjects\FlaskWeb\app\templates\user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 33, in top-level template code
+    {% block content %}{% endblock %}
+  File "D:\PycharmProjects\FlaskWeb\app\templates\user.html", line 22, in block "content"
+    <p><a href="{{ url_for('unfollow', username=user.username) }}">Unfollow</a></p>
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
+    force_external=external)
+  File "D:\Anaconda3\lib\site-packages\werkzeug\routing.py", line 1776, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'unfollow' with values ['username']. Did you mean 'un_follow' instead?
+2018-10-18 17:43:14,777 INFO: Microblog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:76]
+2018-10-18 17:48:04,500 INFO: Microblog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:76]

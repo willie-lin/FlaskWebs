@@ -137,7 +137,7 @@ def edit_profile():
 @app.route('/follow/<username>')
 @login_required
 def follow(username):
-    user = User.query.filter_by(username == username).first()
+    user = User.query.filter_by(username=username).first()
     if user is None:
         flash('User {} not found.'.format(username))
         return redirect(url_for('index'))
@@ -150,7 +150,7 @@ def follow(username):
     return redirect(url_for('user', username=username))
 
 
-@app.route('/unfollow/<username>')
+@app.route('/un_follow/<username>')
 @login_required
 def un_follow(username):
     user = User.query.filter_by(username=username).first()
@@ -160,7 +160,7 @@ def un_follow(username):
     if user == current_user:
         flash('You cannot un_follow yourself!')
         return redirect(url_for('user', username=username))
-    current_user.un_follow(username)
+    current_user.unfollow(username)
     db.session.commit()
     flash('You are not following {}.'.format(username))
     return redirect(url_for('user', username=username))
