@@ -1,4 +1,13 @@
-2018-10-18 17:48:10,135 ERROR: Exception on /user/nanyuan [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
+2018-10-19 16:03:44,393 ERROR: Exception on /user/admin [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: follows
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
   File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -30,113 +39,50 @@ Traceback (most recent call last):
     raise value.with_traceback(tb)
   File "D:\PycharmProjects\FlaskWeb\app\templates\user.html", line 1, in top-level template code
     {% extends "base.html" %}
-  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 33, in top-level template code
-    {% block content %}{% endblock %}
-  File "D:\PycharmProjects\FlaskWeb\app\templates\user.html", line 22, in block "content"
-    <p><a href="{{ url_for('unfollow', username=user.username) }}">Unfollow</a></p>
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
-    force_external=external)
-  File "D:\Anaconda3\lib\site-packages\werkzeug\routing.py", line 1776, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'unfollow' with values ['username']. Did you mean 'un_follow' instead?
-2018-10-18 17:48:18,158 ERROR: Exception on /user/nanyuan [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\PycharmProjects\FlaskWeb\app\routes.py", line 118, in user
-    next_url=next_url, prev_url=prev_url)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 135, in render_template
-    context, ctx.app)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 117, in _render
-    rv = template.render(context)
-  File "D:\Anaconda3\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "D:\Anaconda3\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "D:\Anaconda3\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\Anaconda3\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
+    {% block content -%}
+  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 51, in block "content"
+    {% block app_content %}
+  File "D:\PycharmProjects\FlaskWeb\app\templates\user.html", line 10, in block "app_content"
+    <p>{{ user.followers.count() }} followers, {{ user.followed.count() }} following</p>
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\dynamic.py", line 265, in count
+    return self._clone(sess).count()
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\query.py", line 3124, in count
+    return self.from_self(col).scalar()
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\query.py", line 2877, in scalar
+    ret = self.one()
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\query.py", line 2848, in one
+    ret = self.one_or_none()
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\query.py", line 2818, in one_or_none
+    ret = list(self)
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\query.py", line 2889, in __iter__
+    return self._execute_and_instances(context)
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\query.py", line 2912, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\sql\elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 1200, in _execute_context
+    context)
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\util\compat.py", line 186, in reraise
     raise value.with_traceback(tb)
-  File "D:\PycharmProjects\FlaskWeb\app\templates\user.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 33, in top-level template code
-    {% block content %}{% endblock %}
-  File "D:\PycharmProjects\FlaskWeb\app\templates\user.html", line 22, in block "content"
-    <p><a href="{{ url_for('unfollow', username=user.username) }}">Unfollow</a></p>
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
-    force_external=external)
-  File "D:\Anaconda3\lib\site-packages\werkzeug\routing.py", line 1776, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'unfollow' with values ['username']. Did you mean 'un_follow' instead?
-2018-10-18 17:48:58,160 INFO: Microblog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:76]
-2018-10-18 17:49:09,065 ERROR: Exception on /user/nanyuan [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\PycharmProjects\FlaskWeb\app\routes.py", line 118, in user
-    next_url=next_url, prev_url=prev_url)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 135, in render_template
-    context, ctx.app)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 117, in _render
-    rv = template.render(context)
-  File "D:\Anaconda3\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "D:\Anaconda3\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "D:\Anaconda3\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\Anaconda3\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "D:\PycharmProjects\FlaskWeb\app\templates\user.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 33, in top-level template code
-    {% block content %}{% endblock %}
-  File "D:\PycharmProjects\FlaskWeb\app\templates\user.html", line 22, in block "content"
-    <p><a href="{{ url_for('unfollow', username=user.username) }}">Unfollow</a></p>
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
-    force_external=external)
-  File "D:\Anaconda3\lib\site-packages\werkzeug\routing.py", line 1776, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'unfollow' with values ['username']. Did you mean 'un_follow' instead?
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: follows [SQL: 'SELECT count(*) AS count_1 \nFROM (SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_date AS user_last_date \nFROM user, follows \nWHERE follows.followed_id = ? AND follows.follower_id = user.id) AS anon_1'] [parameters: (3,)] (Background on this error at: http://sqlalche.me/e/e3q8)

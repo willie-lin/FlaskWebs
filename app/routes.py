@@ -127,7 +127,8 @@ def edit_profile():
         current_user.about_me = form.about_me.data
         db.session.commit()
         flash('You change have been saved.')
-        return redirect(url_for('edit_profile'))
+        # return redirect(url_for('edit_profile'))
+        return redirect(url_for('index'))
     elif request.method == 'GET':
         form.username.data = current_user.username
         form.about_me.data = current_user.about_me
@@ -150,6 +151,20 @@ def follow(username):
     return redirect(url_for('user', username=username))
 
 
+# @app.route('/un_follow/<username>')
+# @login_required
+# def un_follow(username):
+#     user = User.query.filter_by(username=username).first()
+#     if user is None:
+#         flash('User {} not found.'.format(username))
+#         return redirect(url_for('index'))
+#     if user == current_user:
+#         flash('You cannot un_follow yourself!')
+#         return redirect(url_for('user', username=username))
+#     current_user.unfollow(username)
+#     db.session.commit()
+#     flash('You are not following {}.'.format(username))
+#     return redirect(url_for('user', username=username))
 @app.route('/un_follow/<username>')
 @login_required
 def un_follow(username):
@@ -158,12 +173,13 @@ def un_follow(username):
         flash('User {} not found.'.format(username))
         return redirect(url_for('index'))
     if user == current_user:
-        flash('You cannot un_follow yourself!')
+        flash('You cannot unfollow yourself!')
         return redirect(url_for('user', username=username))
-    current_user.unfollow(username)
+    current_user.unfollow(user)
     db.session.commit()
     flash('You are not following {}.'.format(username))
     return redirect(url_for('user', username=username))
+
 
 
 @app.route('/explore')

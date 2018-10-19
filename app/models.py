@@ -16,8 +16,7 @@ import jwt
 import hashlib
 
 # 关注者模型
-followers = db.Table(
-    'follows',
+followers = db.Table('followrs',
     db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
     db.Column('followed_id', db.Integer, db.ForeignKey('user.id'))
 )
