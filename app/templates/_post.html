@@ -9,8 +9,9 @@
         <td>
             <a href="{{ url_for('user', username=post.author.username) }}">
                     {{ post.author.username }}
-                </a>
-                <p>Says:</p><br>
+                </a><b>:</b>
+{#                <p>Says:</p>#}
+            <br>
             <p>{{ post.body }}</p>
         </td>
     </tr>

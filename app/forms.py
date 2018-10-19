@@ -43,7 +43,7 @@ class RegistrationForm(FlaskForm):
 # 用户详情页修改
 class EditProfileForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
-    about_me = TextAreaField('About_me', validators=[Length(min=0, max=140)])
+    about_me = TextAreaField('About_Me', validators=[Length(min=0, max=140)])
     submit = SubmitField('Submit')
 
     def __init__(self, original_username, *args, **kwargs):
