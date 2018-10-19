@@ -1,4 +1,4 @@
-2018-10-19 12:26:51,628 ERROR: Exception on /edit_profile [POST] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
+2018-10-19 15:52:11,951 ERROR: Exception on /user/solo [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,8 +14,36 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\PycharmProjects\FlaskWeb\app\routes.py", line 131, in edit_profile
-    return redirect(url_for('index'))
+  File "D:\PycharmProjects\FlaskWeb\app\routes.py", line 118, in user
+    next_url=next_url, prev_url=prev_url)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 135, in render_template
+    context, ctx.app)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 117, in _render
+    rv = template.render(context)
+  File "D:\Anaconda3\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "D:\Anaconda3\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "D:\Anaconda3\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Anaconda3\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\PycharmProjects\FlaskWeb\app\templates\user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
+    {% block content -%}
+  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 51, in block "content"
+    {% block app_content %}
+  File "D:\PycharmProjects\FlaskWeb\app\templates\user.html", line 16, in block "app_content"
+    <p><a href="{{ url_for('un_follow', username=user.username) }}">UnFollow</a></p>
   File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
     return appctx.app.handle_url_build_error(error, endpoint, values)
   File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
@@ -26,8 +54,8 @@ Traceback (most recent call last):
     force_external=external)
   File "D:\Anaconda3\lib\site-packages\werkzeug\routing.py", line 1776, in build
     raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'user'. Did you forget to specify values ['username']?
-2018-10-19 12:27:29,322 ERROR: Exception on /edit_profile [POST] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
+werkzeug.routing.BuildError: Could not build url for endpoint 'un_follow' with values ['username']. Did you mean 'unfollow' instead?
+2018-10-19 15:53:21,431 ERROR: Exception on /user/solo [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -43,8 +71,36 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\PycharmProjects\FlaskWeb\app\routes.py", line 131, in edit_profile
-    return redirect(url_for('edit_profile'))
+  File "D:\PycharmProjects\FlaskWeb\app\routes.py", line 118, in user
+    next_url=next_url, prev_url=prev_url)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 135, in render_template
+    context, ctx.app)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 117, in _render
+    rv = template.render(context)
+  File "D:\Anaconda3\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "D:\Anaconda3\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "D:\Anaconda3\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Anaconda3\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\PycharmProjects\FlaskWeb\app\templates\user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
+    {% block content -%}
+  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 51, in block "content"
+    {% block app_content %}
+  File "D:\PycharmProjects\FlaskWeb\app\templates\user.html", line 16, in block "app_content"
+    <p><a href="{{ url_for('un_follow', username=user.username) }}">UnFollow</a></p>
   File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
     return appctx.app.handle_url_build_error(error, endpoint, values)
   File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
@@ -55,84 +111,4 @@ Traceback (most recent call last):
     force_external=external)
   File "D:\Anaconda3\lib\site-packages\werkzeug\routing.py", line 1776, in build
     raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'user'. Did you forget to specify values ['username']?
-2018-10-19 12:27:49,601 ERROR: Exception on /edit_profile [POST] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\PycharmProjects\FlaskWeb\app\routes.py", line 131, in edit_profile
-    return redirect(url_for('edit_profile'))
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
-    force_external=external)
-  File "D:\Anaconda3\lib\site-packages\werkzeug\routing.py", line 1776, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'user'. Did you forget to specify values ['username']?
-2018-10-19 12:28:17,154 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:58]
-2018-10-19 12:29:15,157 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:58]
-2018-10-19 12:34:38,277 ERROR: Exception on /un_follow/wjj [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\PycharmProjects\FlaskWeb\app\routes.py", line 164, in un_follow
-    current_user.unfollow(username)
-  File "D:\PycharmProjects\FlaskWeb\app\models.py", line 64, in unfollow
-    if self.is_following(user):
-  File "D:\PycharmProjects\FlaskWeb\app\models.py", line 68, in is_following
-    return self.followed.filter(followers.c.followed_id == user.id).count() > 0
-AttributeError: 'str' object has no attribute 'id'
-2018-10-19 12:38:08,029 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:58]
-2018-10-19 12:38:29,131 ERROR: Exception on /un_follow/wjj [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\PycharmProjects\FlaskWeb\app\routes.py", line 164, in un_follow
-    current_user.un_follow(username)
-  File "D:\PycharmProjects\FlaskWeb\app\models.py", line 64, in un_follow
-    if self.is_following(user):
-  File "D:\PycharmProjects\FlaskWeb\app\models.py", line 68, in is_following
-    return self.followed.filter(followers.c.followed_id == user.id).count() > 0
-AttributeError: 'str' object has no attribute 'id'
-2018-10-19 14:58:36,426 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:58]
-2018-10-19 15:04:30,843 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:58]
+werkzeug.routing.BuildError: Could not build url for endpoint 'un_follow' with values ['username']. Did you mean 'unfollow' instead?
