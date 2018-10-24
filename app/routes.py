@@ -19,6 +19,8 @@ from app.email import send_password_reset_email
 from app.forms import ResetPasswordForm
 from flask_babel import _, get_locale
 from guess_language import guess_language
+from flask import jsonify
+from app.translate import translate
 
 
 @app.before_request
@@ -26,7 +28,14 @@ def before_request():
     if current_user.is_authenticated:
         current_user.last_date = datetime.utcnow()
         db.session.commit()
-    g.locale = str(get_locale())
+    # g.locale = str(get_locale())
+    g.locale = 'zh' if str(get_locale()).startswith('zh') else str(get_locale())
+
+
+@app.route('/translate', methods=['POST'])
+@login_required
+def translate_text():
+    return jsonify({'text': translate(request.form['text'],request.form['source_language'],request.form['dest_language'])})
 
 
 @app.route('/', methods=['GET', 'POST'])

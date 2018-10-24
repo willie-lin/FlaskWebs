@@ -43,3 +43,5 @@ class Config(object):
     ADMINS = ['yyhmmwan@126.com']
     POSTS_PER_PAGE = 10
     LANGUAGES = ['zh', 'en',  'es']
+    APP_ID = os.environ.get('APP_ID')
+    BD_TRANSLATOR_KEY = os.environ.get('BD_TRANSLATOR_KEY')
