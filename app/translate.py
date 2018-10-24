@@ -24,8 +24,9 @@ def translate(q, fromLang, toLang):
         return _('Error: the translator service is not configured')
     # auth = {'BD_TRANSLATOR_KEY': app.config['BD_TRANSLATOR_KEY']}
     appid = app.config['APP_ID']
+    print(appid)
     secretKey = app.config['BD_TRANSLATOR_KEY']
-
+    print(secretKey)
     httpClient = None
     myurl = '/api/trans/vip/translate'
     salt = random.randint(32768, 65536)
@@ -36,6 +37,7 @@ def translate(q, fromLang, toLang):
     sign = m1.hexdigest()
     myurl = myurl + '?appid=' + appid + '&q=' + parse.quote(q) + '&from=' + fromLang + '&to=' + toLang + '&salt=' + str(
         salt) + '&sign=' + sign
+    print(myurl)
 
     try:
         httpClient = http.client.HTTPConnection('api.fanyi.baidu.com')
