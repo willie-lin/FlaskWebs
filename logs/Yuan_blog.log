@@ -65,3 +65,4 @@ Traceback (most recent call last):
     return getattr(self._get_current_object(), name)
 AttributeError: 'User' object has no attribute 'config'
 2018-10-24 21:18:16,107 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:85]
+2018-10-25 08:52:05,539 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:85]
