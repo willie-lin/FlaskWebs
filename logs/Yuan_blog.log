@@ -66,3 +66,70 @@ Traceback (most recent call last):
 AttributeError: 'User' object has no attribute 'config'
 2018-10-24 21:18:16,107 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:85]
 2018-10-25 08:52:05,539 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:85]
+2018-10-25 11:40:49,266 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:85]
+2018-10-25 11:41:43,042 ERROR: Exception on / [GET] [in D:\PycharmProjects\Flask\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\PycharmProjects\Flask\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\PycharmProjects\Flask\venv\lib\site-packages\flask\app.py", line 1816, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "D:\PycharmProjects\Flask\venv\lib\site-packages\flask\app.py", line 1833, in finalize_request
+    response = self.process_response(response)
+  File "D:\PycharmProjects\Flask\venv\lib\site-packages\flask\app.py", line 2114, in process_response
+    self.session_interface.save_session(self, ctx.session, response)
+  File "D:\PycharmProjects\Flask\venv\lib\site-packages\flask\sessions.py", line 384, in save_session
+    samesite=samesite
+TypeError: set_cookie() got an unexpected keyword argument 'samesite'
+2018-10-25 11:41:52,216 ERROR: Exception on / [GET] [in D:\PycharmProjects\Flask\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\PycharmProjects\Flask\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\PycharmProjects\Flask\venv\lib\site-packages\flask\app.py", line 1816, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "D:\PycharmProjects\Flask\venv\lib\site-packages\flask\app.py", line 1833, in finalize_request
+    response = self.process_response(response)
+  File "D:\PycharmProjects\Flask\venv\lib\site-packages\flask\app.py", line 2114, in process_response
+    self.session_interface.save_session(self, ctx.session, response)
+  File "D:\PycharmProjects\Flask\venv\lib\site-packages\flask\sessions.py", line 384, in save_session
+    samesite=samesite
+TypeError: set_cookie() got an unexpected keyword argument 'samesite'
+2018-10-25 16:59:00,309 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:85]
+2018-10-25 17:10:02,511 ERROR: Exception on /translate [POST] [in D:\Anaconda3\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Anaconda3\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\PycharmProjects\FlaskWeb\app\main\routes.py", line 33, in translate_text
+    return jsonify({'text': translate(request.form['text'],request.form['source_language'],request.form['dest_language'])})
+TypeError: translate() takes 1 positional argument but 3 were given
+2018-10-25 17:10:04,042 ERROR: Exception on /translate [POST] [in D:\Anaconda3\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Anaconda3\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\PycharmProjects\FlaskWeb\app\main\routes.py", line 33, in translate_text
+    return jsonify({'text': translate(request.form['text'],request.form['source_language'],request.form['dest_language'])})
+TypeError: translate() takes 1 positional argument but 3 were given
+2018-10-25 17:49:48,667 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:85]

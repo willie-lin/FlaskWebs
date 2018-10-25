@@ -110,7 +110,9 @@ matplotlib==2.0.0
 mccabe==0.6.1
 menuinst==1.4.7
 mistune==0.8.3
-mkl-fft==1.0.0
+mkl-fft==1.0.0not set
+FLASK_ENV = development
+FLASK_DEBUG = 0
 mkl-random==1.0.1
 more-itertools==4.1.0
 mpmath==0.19
