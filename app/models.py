@@ -145,7 +145,8 @@ class User(UserMixin, db.Model):
 
 
 # 表单模型
-class Post(SearchableMixin, db.Model):
+# class Post(SearchableMixin, db.Model):
+class Post(db.Model):
     __searchable__ = ['body']
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(140))
