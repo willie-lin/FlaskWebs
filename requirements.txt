@@ -1,7 +1,6 @@
 alabaster==0.7.10
 alembic==0.9.9
-anaconda-client==1.6.14
-anaconda-navigator==1.8.2
+anaconda-client==1.2.2
 anaconda-project==0.8.2
 appdirs==1.4.3
 asn1crypto==0.24.0
@@ -13,14 +12,11 @@ Babel==2.6.0
 backcall==0.1.0
 backports.shutil-get-terminal-size==1.0.0
 beautifulsoup4==4.6.0
-bitarray==0.8.1
 bkcharts==0.2
-blaze==0.11.3
 bleach==2.1.3
 blinker==1.4
 bokeh==0.12.15
 boto==2.48.0
-Bottleneck==1.2.1
 CacheControl==0.12.5
 cairocffi==0.8.0
 CairoSVG==2.2.1
@@ -29,12 +25,9 @@ cffi==1.11.5
 chardet==3.0.4
 click==6.7
 cloudpickle==0.5.2
-clyent==1.2.2
+clyent==1.2.1
 colorama==0.3.9
 comtypes==1.1.4
-conda==4.3.30
-conda-build==3.8.0
-conda-verify==2.0.0
 configobj==5.0.6
 constantly==15.1.0
 contextlib2==0.5.5
@@ -43,9 +36,7 @@ cssselect==1.0.3
 cssselect2==0.2.1
 cycler==0.10.0
 Cython==0.29
-cytoolz==0.9.0.1
 dask==0.19.4
-datashape==0.5.4
 decorator==4.2.1
 defusedxml==0.5.0
 distlib==0.2.8
@@ -53,10 +44,10 @@ distributed==1.21.6
 dnspython==1.15.0
 docutils==0.14
 dominate==2.3.4
+elasticsearch==6.3.1
 entrypoints==0.2.3
 enum34==1.1.6
 et-xmlfile==1.0.1
-fastcache==1.0.2
 filelock==2.0.7
 Flask==1.0.2
 Flask-Babel==0.12.0
@@ -76,10 +67,13 @@ h5py==2.7.1
 HeapDict==1.0.0
 html5lib==1.0.1
 hyperlink==18.0.0
+icc-rt==2019.0
 idna==2.6
 imagesize==1.0.0
 incremental==17.5.0
 inflection==0.3.1
+intel-numpy==1.14.3
+intel-openmp==2019.0
 ipykernel==4.8.2
 ipython==6.3.1
 ipython-genutils==0.2.0
@@ -108,19 +102,17 @@ Markdown==3.0.1
 MarkupSafe==1.0
 matplotlib==2.0.0
 mccabe==0.6.1
-menuinst==1.4.7
 mistune==0.8.3
-mkl-fft==1.0.0not set
-FLASK_ENV = development
-FLASK_DEBUG = 0
+mkl==2019.0
+mkl-fft==1.0.6
 mkl-random==1.0.1
 more-itertools==4.1.0
 mpmath==0.19
 msgpack==0.5.6
 msgpack-python==0.5.6
 multipledispatch==0.5.0
-navigator-updater==0.1.0
 nbconvert==5.3.1
+nbformat==4.4.0
 ndg-httpsclient==0.5.0
 netCDF4==1.2.7
 networkx==2.1
@@ -129,9 +121,8 @@ nose==1.3.7
 notebook==5.4.1
 numba==0.37.0
 numexpr==2.6.4
-numpy==1.13.1
+numpy==1.14.3
 numpydoc==0.8.0
-odo==0.5.1
 olefile==0.44
 openpyxl==2.5.1
 packaging==17.1
@@ -154,6 +145,7 @@ pluggy==0.8.0
 ply==3.11
 proglog==0.1.8
 progress==1.4
+prometheus-client==0.4.2
 prompt-toolkit==1.0.15
 psutil==5.4.3
 psycopg2==2.7.4
@@ -161,14 +153,12 @@ py==1.5.3
 pyasn1==0.4.3
 pyasn1-modules==0.2.1
 pycodestyle==2.3.1
-pycosat==0.6.2
 pycparser==2.18
-pycrypto==2.6.1
-pycurl==7.43.0
 PyDispatcher==2.0.5
 pyflakes==1.6.0
 pygeoip==0.3.2
 Pygments==2.2.0
+PyHamcrest==1.9.0
 PyJWT==1.6.4
 pylint==1.8.4
 pymongo==3.6.1
@@ -196,6 +186,7 @@ pywinpty==0.5.4
 PyYAML==3.12
 pyzmq==17.0.0
 QtAwesome==0.4.4
+qtconsole==4.4.2
 QtPy==1.4.0
 Quandl==3.3.0
 queuelib==1.5.0
@@ -206,7 +197,6 @@ ruamel.yaml==0.15.37
 scikit-image==0.13.1
 scikit-learn==0.19.1
 scipy==1.0.1
-Scrapy==1.5.0
 seaborn==0.8.1
 Send2Trash==1.5.0
 service-identity==17.0.0
@@ -219,7 +209,6 @@ sortedcontainers==1.5.9
 Sphinx==1.7.2
 sphinxcontrib-websupport==1.0.1
 SQLAlchemy==1.2.6
-statsmodels==0.8.0
 sympy==1.1.1
 tables==3.4.2
 tblib==1.3.2
@@ -230,7 +219,6 @@ toolz==0.9.0
 tornado==5.0.1
 tqdm==4.23.2
 traitlets==4.3.2
-Twisted==18.4.0
 typing==3.6.4
 unicodecsv==0.14.1
 urllib3==1.22

@@ -47,3 +47,4 @@ class Config(object):
     LANGUAGES = ['zh', 'en',  'es']
     APP_ID = os.environ.get('APP_ID')
     BD_TRANSLATOR_KEY = os.environ.get('BD_TRANSLATOR_KEY')
+    ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')

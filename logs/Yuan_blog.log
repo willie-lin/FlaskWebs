@@ -133,3 +133,6 @@ Traceback (most recent call last):
     return jsonify({'text': translate(request.form['text'],request.form['source_language'],request.form['dest_language'])})
 TypeError: translate() takes 1 positional argument but 3 were given
 2018-10-25 17:49:48,667 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:85]
+2018-10-25 20:24:49,344 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:85]
+2018-10-26 08:52:06,953 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:85]
+2018-10-26 15:59:07,665 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:85]
