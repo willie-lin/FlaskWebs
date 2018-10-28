@@ -16,6 +16,7 @@ from guess_language import guess_language
 from flask import jsonify
 from app.translate import translate
 from app.main import bp
+from app.main.forms import SearchForm
 
 
 @bp.before_request
@@ -23,8 +24,10 @@ def before_request():
     if current_user.is_authenticated:
         current_user.last_date = datetime.utcnow()
         db.session.commit()
+        g.search_form = SearchForm
     # g.locale = str(get_locale())
     g.locale = str(get_locale())
+
 
 
 @bp.route('/translate', methods=['POST'])
