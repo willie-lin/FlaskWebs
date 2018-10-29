@@ -5,6 +5,7 @@
 # @File      : froms.py
 # @Time      : 2018/10/24 19:12
 # @software  : PyCharm
+from flask import request
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, ValidationError, Email, EqualTo, Length

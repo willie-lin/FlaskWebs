@@ -1,0 +1,146 @@
+2018-10-22 18:33:29,818 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:63]
+2018-10-22 18:58:26,612 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:63]
+2018-10-22 18:58:57,879 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:63]
+2018-10-23 09:16:13,479 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:63]
+2018-10-23 10:26:28,582 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:63]
+2018-10-23 17:20:55,326 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:63]
+2018-10-23 17:25:11,697 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:63]
+2018-10-23 17:25:45,692 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:63]
+2018-10-23 17:29:54,443 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:63]
+2018-10-23 18:42:03,681 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:63]
+2018-10-24 10:39:08,851 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:63]
+2018-10-24 18:03:46,707 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:68]
+2018-10-24 18:05:14,775 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:68]
+2018-10-24 18:05:48,093 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:68]
+2018-10-24 18:06:06,661 ERROR: Exception on / [GET] [in D:\Anaconda3\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Anaconda3\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\PycharmProjects\FlaskWeb\app\routes.py", line 64, in index
+    prev_url=prev_url)
+  File "D:\Anaconda3\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "D:\Anaconda3\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "D:\Anaconda3\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "D:\Anaconda3\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "D:\Anaconda3\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Anaconda3\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\PycharmProjects\FlaskWeb\app\templates\index.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 21, in block "body"
+    {% block navbar %}
+  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 30, in block "navbar"
+    <li><a href="{{ url_for('logout') }}">{{ _('Logout') }}</a></li>
+  File "D:\Anaconda3\lib\site-packages\flask\helpers.py", line 333, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1805, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "D:\Anaconda3\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "D:\Anaconda3\lib\site-packages\flask\helpers.py", line 323, in url_for
+    force_external=external)
+  File "D:\Anaconda3\lib\site-packages\werkzeug\routing.py", line 1776, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'logout'. Did you mean 'auth.logout' instead?
+2018-10-24 20:20:40,441 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:82]
+2018-10-24 20:23:18,903 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:85]
+2018-10-24 20:23:31,157 ERROR: Exception on / [GET] [in D:\Anaconda3\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Anaconda3\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1610, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1831, in preprocess_request
+    rv = func()
+  File "D:\PycharmProjects\FlaskWeb\app\main\routes.py", line 27, in before_request
+    g.locale = str(get_locale())
+  File "D:\Anaconda3\lib\site-packages\flask_babel\__init__.py", line 257, in get_locale
+    rv = babel.locale_selector_func()
+  File "D:\PycharmProjects\FlaskWeb\app\__init__.py", line 91, in get_locale
+    return request.accept_languages.best_match(create_app.config['LANGUAGES'])
+AttributeError: 'function' object has no attribute 'config'
+2018-10-24 20:24:20,841 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:85]
+2018-10-24 20:24:25,812 ERROR: Exception on / [GET] [in D:\Anaconda3\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Anaconda3\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1610, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1831, in preprocess_request
+    rv = func()
+  File "D:\PycharmProjects\FlaskWeb\app\main\routes.py", line 27, in before_request
+    g.locale = str(get_locale())
+  File "D:\Anaconda3\lib\site-packages\flask_babel\__init__.py", line 257, in get_locale
+    rv = babel.locale_selector_func()
+  File "D:\PycharmProjects\FlaskWeb\app\__init__.py", line 91, in get_locale
+    return request.accept_languages.best_match(create_app.config['LANGUAGES'])
+AttributeError: 'function' object has no attribute 'config'
+2018-10-24 20:26:00,747 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:85]
+2018-10-24 20:26:14,376 ERROR: Exception on /auth/login [GET] [in D:\Anaconda3\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Anaconda3\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\PycharmProjects\FlaskWeb\app\auth\routes.py", line 35, in login
+    return render_template('login.html', title='Sign In', form=form)
+  File "D:\Anaconda3\lib\site-packages\flask\templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "D:\Anaconda3\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "D:\Anaconda3\lib\site-packages\jinja2\environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "D:\Anaconda3\lib\site-packages\jinja2\environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "D:\Anaconda3\lib\site-packages\jinja2\loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "D:\Anaconda3\lib\site-packages\flask\templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "D:\Anaconda3\lib\site-packages\flask\templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: login.html
