@@ -21,7 +21,6 @@ from flask_moment import Moment
 from flask_babel import Babel, lazy_gettext as _l
 from elasticsearch import Elasticsearch
 
-
 # app = Flask(__name__)
 # app.config.from_object(Config)
 db = SQLAlchemy()

@@ -12,16 +12,9 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from app import login, create_app
 from time import time
-from app.search import add_to_index, remove_from_index, query_index
 import jwt
 import hashlib
-
-# 关注者模型
-followers = db.Table(
-    'followrs',
-    db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
-    db.Column('followed_id', db.Integer, db.ForeignKey('user.id'))
-)
+from app.search import add_to_index, remove_from_index, query_index
 
 
 class SearchableMixin(object):
@@ -32,8 +25,9 @@ class SearchableMixin(object):
             return cls.query.filter_by(id=0), 0
         when = []
         for i in range(len(ids)):
-            when.append(ids[i], i)
-        return cls.query.filter(cls.id.in_(ids)).order_by(db.case(when, value=cls.id)), total
+            when.append((ids[i], i))
+        return cls.query.filter(cls.id.in_(ids)).order_by(
+            db.case(when, value=cls.id)), total
 
     @classmethod
     def before_commit(cls, session):
@@ -64,6 +58,14 @@ class SearchableMixin(object):
 
 db.event.listen(db.session, 'before_commit', SearchableMixin.before_commit)
 db.event.listen(db.session, 'after_commit', SearchableMixin.after_commit)
+
+
+# 关注者模型
+followers = db.Table(
+    'followrs',
+    db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
+    db.Column('followed_id', db.Integer, db.ForeignKey('user.id'))
+)
 
 
 # 用户模型
@@ -145,8 +147,7 @@ class User(UserMixin, db.Model):
 
 
 # 表单模型
-# class Post(SearchableMixin, db.Model):
-class Post(db.Model):
+class Post(SearchableMixin, db.Model):
     __searchable__ = ['body']
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(140))

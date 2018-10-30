@@ -1,32 +1,32 @@
-2018-10-29 18:14:20,289 ERROR: Exception on /explore [GET] [in D:\Anaconda3\lib\site-packages\flask\app.py:1560]
+2018-10-30 12:18:58,520 ERROR: Exception on / [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "D:\Anaconda3\lib\site-packages\flask\_compat.py", line 33, in reraise
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
     raise value
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
     rv = self.dispatch_request()
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
   File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\PycharmProjects\FlaskWeb\app\main\routes.py", line 156, in explore
-    next_url=next_url, prev_url=prev_url)
-  File "D:\Anaconda3\lib\site-packages\flask\templating.py", line 134, in render_template
+  File "D:\PycharmProjects\FlaskWeb\app\main\routes.py", line 91, in index
+    prev_url=prev_url)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 135, in render_template
     context, ctx.app)
-  File "D:\Anaconda3\lib\site-packages\flask\templating.py", line 116, in _render
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 117, in _render
     rv = template.render(context)
-  File "D:\Anaconda3\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
     return original_render(self, *args, **kwargs)
-  File "D:\Anaconda3\lib\site-packages\jinja2\environment.py", line 1008, in render
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
     return self.environment.handle_exception(exc_info, True)
-  File "D:\Anaconda3\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
-  File "D:\Anaconda3\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
   File "D:\PycharmProjects\FlaskWeb\app\templates\index.html", line 2, in top-level template code
     {% import 'bootstrap/wtf.html' as wtf %}
@@ -40,49 +40,42 @@ Traceback (most recent call last):
     {% block body -%}
   File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 21, in block "body"
     {% block navbar %}
-  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 26, in block "navbar"
-    <form class="navbar-form navbar-left" method="get" action="{{ url_for('main.search') }}">
-  File "D:\Anaconda3\lib\site-packages\flask\helpers.py", line 333, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1805, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "D:\Anaconda3\lib\site-packages\flask\_compat.py", line 33, in reraise
-    raise value
-  File "D:\Anaconda3\lib\site-packages\flask\helpers.py", line 323, in url_for
-    force_external=external)
-  File "D:\Anaconda3\lib\site-packages\werkzeug\routing.py", line 1768, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'main.search'. Did you mean 'main.user' instead?
-2018-10-29 18:20:51,278 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:88]
-2018-10-29 18:21:14,017 ERROR: Exception on /explore [GET] [in D:\Anaconda3\lib\site-packages\flask\app.py:1560]
+  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 30, in block "navbar"
+    {{ g.search_form.q(size=20, class='form-control', placeholder=g.search_form.q.label.text) }}
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'wtforms.fields.core.UnboundField object' has no attribute 'label'
+2018-10-30 15:01:23,878 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:88]
+2018-10-30 15:05:28,432 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:88]
+2018-10-30 15:05:34,373 ERROR: Exception on / [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "D:\Anaconda3\lib\site-packages\flask\_compat.py", line 33, in reraise
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
     raise value
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
     rv = self.dispatch_request()
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
   File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\PycharmProjects\FlaskWeb\app\main\routes.py", line 156, in explore
-    next_url=next_url, prev_url=prev_url)
-  File "D:\Anaconda3\lib\site-packages\flask\templating.py", line 134, in render_template
+  File "D:\PycharmProjects\FlaskWeb\app\main\routes.py", line 91, in index
+    prev_url=prev_url)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 135, in render_template
     context, ctx.app)
-  File "D:\Anaconda3\lib\site-packages\flask\templating.py", line 116, in _render
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 117, in _render
     rv = template.render(context)
-  File "D:\Anaconda3\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
     return original_render(self, *args, **kwargs)
-  File "D:\Anaconda3\lib\site-packages\jinja2\environment.py", line 1008, in render
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
     return self.environment.handle_exception(exc_info, True)
-  File "D:\Anaconda3\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
-  File "D:\Anaconda3\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
   File "D:\PycharmProjects\FlaskWeb\app\templates\index.html", line 2, in top-level template code
     {% import 'bootstrap/wtf.html' as wtf %}
@@ -96,16 +89,9 @@ Traceback (most recent call last):
     {% block body -%}
   File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 21, in block "body"
     {% block navbar %}
-  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 26, in block "navbar"
-    <form class="navbar-form navbar-left" method="get" action="{{ url_for('main.search') }}">
-  File "D:\Anaconda3\lib\site-packages\flask\helpers.py", line 333, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1805, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "D:\Anaconda3\lib\site-packages\flask\_compat.py", line 33, in reraise
-    raise value
-  File "D:\Anaconda3\lib\site-packages\flask\helpers.py", line 323, in url_for
-    force_external=external)
-  File "D:\Anaconda3\lib\site-packages\werkzeug\routing.py", line 1768, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'main.search'. Did you mean 'main.user' instead?
+  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 28, in block "navbar"
+    {{ g.search_form.q(size=20, class='form-control', placeholder=g.search_form.q.label.text) }}
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'wtforms.fields.core.UnboundField object' has no attribute 'label'
+2018-10-30 15:46:29,634 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:88]

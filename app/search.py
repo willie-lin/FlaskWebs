@@ -5,6 +5,7 @@
 # @File      : search.py
 # @Time      : 2018/10/26 17:46
 # @software  : PyCharm
+
 from flask import current_app
 
 
@@ -14,7 +15,8 @@ def add_to_index(index, model):
     payload = {}
     for field in model.__searchable__:
         payload[field] = getattr(model, field)
-    current_app.elasticsearch.index(index=index, doc_type=index, id=model.id, body=payload)
+    current_app.elasticsearch.index(index=index, doc_type=index, id=model.id,
+                                    body=payload)
 
 
 def remove_from_index(index, model):
@@ -26,8 +28,9 @@ def remove_from_index(index, model):
 def query_index(index, query, page, per_page):
     if not current_app.elasticsearch:
         return [], 0
-    search = current_app.elasticsearch.search(index=index, doc_type=index,
-                    body={'query': {'multi_match': {'query': query, 'field': ['*']}},
-                          'from': (page - 1) * per_page, 'size': per_page})
+    search = current_app.elasticsearch.search(
+        index=index, doc_type=index,
+        body={'query': {'multi_match': {'query': query, 'fields': ['*']}},
+              'from': (page - 1) * per_page, 'size': per_page})
     ids = [int(hit['_id']) for hit in search['hits']['hits']]
     return ids, search['hits']['total']

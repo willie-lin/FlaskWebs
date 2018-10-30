@@ -6,7 +6,7 @@
                 <img src="{{ post.author.avatar(70) }}">
             </a>
         </td>
-        <td>
+        <td style="word-wrap: break-word">
             {% set user_link %}
             <a href="{{ url_for('main.user', username=post.author.username) }}">
                     {{ post.author.username }}

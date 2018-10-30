@@ -1,142 +1,126 @@
-2018-10-24 21:06:05,955 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:85]
-2018-10-24 21:08:04,600 ERROR: Exception on / [GET] [in D:\Anaconda3\lib\site-packages\flask\app.py:1560]
+2018-10-30 11:50:16,753 ERROR: Exception on /index [POST] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1982, in wsgi_app
-    response = self.full_dispatch_request()
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\Anaconda3\lib\site-packages\flask\_compat.py", line 33, in reraise
+  File "D:\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 386, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 2, in raise_from
+  File "D:\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 382, in _make_request
+    httplib_response = conn.getresponse()
+  File "D:\Anaconda3\lib\http\client.py", line 1331, in getresponse
+    response.begin()
+  File "D:\Anaconda3\lib\http\client.py", line 297, in begin
+    version, status, reason = self._read_status()
+  File "D:\Anaconda3\lib\http\client.py", line 258, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "D:\Anaconda3\lib\socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Anaconda3\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 172, in perform_request
+    response = self.pool.urlopen(method, url, body, retries=Retry(False), headers=request_headers, **kw)
+  File "D:\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 649, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "D:\Anaconda3\lib\site-packages\urllib3\util\retry.py", line 333, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "D:\Anaconda3\lib\site-packages\urllib3\packages\six.py", line 686, in reraise
     raise value
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+  File "D:\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "D:\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 388, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "D:\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 308, in _raise_timeout
+    raise ReadTimeoutError(self, url, "Read timed out. (read timeout=%s)" % timeout_value)
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=9200): Read timed out. (read timeout=10)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
     rv = self.dispatch_request()
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
   File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\PycharmProjects\FlaskWeb\app\main\routes.py", line 51, in index
-    posts = current_user.followed_posts().paginate(page, current_user.config['POSTS_PER_PAGE'], False)
-  File "D:\Anaconda3\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
-    return getattr(self._get_current_object(), name)
-AttributeError: 'User' object has no attribute 'config'
-2018-10-24 21:14:40,472 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:85]
-2018-10-24 21:14:59,006 ERROR: Exception on /explore [GET] [in D:\Anaconda3\lib\site-packages\flask\app.py:1560]
+  File "D:\PycharmProjects\FlaskWeb\app\main\routes.py", line 78, in index
+    db.session.commit()
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\scoping.py", line 157, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\session.py", line 906, in commit
+    self.transaction.commit()
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\session.py", line 468, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\event\attr.py", line 218, in __call__
+    fn(*args, **kw)
+  File "D:\PycharmProjects\FlaskWeb\app\models.py", line 92, in after_commit
+    add_to_index(obj.__tablename__, obj)
+  File "D:\PycharmProjects\FlaskWeb\app\search.py", line 45, in add_to_index
+    body=payload)
+  File "D:\Anaconda3\lib\site-packages\elasticsearch\client\utils.py", line 76, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "D:\Anaconda3\lib\site-packages\elasticsearch\client\__init__.py", line 319, in index
+    _make_path(index, doc_type, id), params=params, body=body)
+  File "D:\Anaconda3\lib\site-packages\elasticsearch\transport.py", line 318, in perform_request
+    status, headers_response, data = connection.perform_request(method, url, params, body, headers=headers, ignore=ignore, timeout=timeout)
+  File "D:\Anaconda3\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 180, in perform_request
+    raise ConnectionTimeout('TIMEOUT', str(e), e)
+elasticsearch.exceptions.ConnectionTimeout: ConnectionTimeout caused by - ReadTimeoutError(HTTPConnectionPool(host='127.0.0.1', port=9200): Read timed out. (read timeout=10))
+2018-10-30 11:59:48,592 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:88]
+2018-10-30 12:10:18,311 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:88]
+2018-10-30 12:18:10,367 ERROR: Exception on / [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "D:\Anaconda3\lib\site-packages\flask\_compat.py", line 33, in reraise
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
     raise value
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
     rv = self.dispatch_request()
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
   File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\PycharmProjects\FlaskWeb\app\main\routes.py", line 147, in explore
-    page, current_user.config['POSTS_PER_PAGE'], False)
-  File "D:\Anaconda3\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
-    return getattr(self._get_current_object(), name)
-AttributeError: 'User' object has no attribute 'config'
-2018-10-24 21:17:15,694 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:85]
-2018-10-24 21:17:35,444 ERROR: Exception on /user/admin [GET] [in D:\Anaconda3\lib\site-packages\flask\app.py:1560]
-Traceback (most recent call last):
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1982, in wsgi_app
-    response = self.full_dispatch_request()
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+  File "D:\PycharmProjects\FlaskWeb\app\main\routes.py", line 91, in index
+    prev_url=prev_url)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 135, in render_template
+    context, ctx.app)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 117, in _render
+    rv = template.render(context)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
-  File "D:\Anaconda3\lib\site-packages\flask\_compat.py", line 33, in reraise
-    raise value
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1598, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\PycharmProjects\FlaskWeb\app\main\routes.py", line 79, in user
-    page, current_user.config['POSTS_PER_PAGE'], False)
-  File "D:\Anaconda3\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
-    return getattr(self._get_current_object(), name)
-AttributeError: 'User' object has no attribute 'config'
-2018-10-24 21:18:16,107 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:85]
-2018-10-25 08:52:05,539 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:85]
-2018-10-25 11:40:49,266 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:85]
-2018-10-25 11:41:43,042 ERROR: Exception on / [GET] [in D:\PycharmProjects\Flask\venv\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "D:\PycharmProjects\Flask\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "D:\PycharmProjects\Flask\venv\lib\site-packages\flask\app.py", line 1816, in full_dispatch_request
-    return self.finalize_request(rv)
-  File "D:\PycharmProjects\Flask\venv\lib\site-packages\flask\app.py", line 1833, in finalize_request
-    response = self.process_response(response)
-  File "D:\PycharmProjects\Flask\venv\lib\site-packages\flask\app.py", line 2114, in process_response
-    self.session_interface.save_session(self, ctx.session, response)
-  File "D:\PycharmProjects\Flask\venv\lib\site-packages\flask\sessions.py", line 384, in save_session
-    samesite=samesite
-TypeError: set_cookie() got an unexpected keyword argument 'samesite'
-2018-10-25 11:41:52,216 ERROR: Exception on / [GET] [in D:\PycharmProjects\Flask\venv\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "D:\PycharmProjects\Flask\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "D:\PycharmProjects\Flask\venv\lib\site-packages\flask\app.py", line 1816, in full_dispatch_request
-    return self.finalize_request(rv)
-  File "D:\PycharmProjects\Flask\venv\lib\site-packages\flask\app.py", line 1833, in finalize_request
-    response = self.process_response(response)
-  File "D:\PycharmProjects\Flask\venv\lib\site-packages\flask\app.py", line 2114, in process_response
-    self.session_interface.save_session(self, ctx.session, response)
-  File "D:\PycharmProjects\Flask\venv\lib\site-packages\flask\sessions.py", line 384, in save_session
-    samesite=samesite
-TypeError: set_cookie() got an unexpected keyword argument 'samesite'
-2018-10-25 16:59:00,309 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:85]
-2018-10-25 17:10:02,511 ERROR: Exception on /translate [POST] [in D:\Anaconda3\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\Anaconda3\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\PycharmProjects\FlaskWeb\app\main\routes.py", line 33, in translate_text
-    return jsonify({'text': translate(request.form['text'],request.form['source_language'],request.form['dest_language'])})
-TypeError: translate() takes 1 positional argument but 3 were given
-2018-10-25 17:10:04,042 ERROR: Exception on /translate [POST] [in D:\Anaconda3\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\Anaconda3\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "D:\Anaconda3\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\PycharmProjects\FlaskWeb\app\main\routes.py", line 33, in translate_text
-    return jsonify({'text': translate(request.form['text'],request.form['source_language'],request.form['dest_language'])})
-TypeError: translate() takes 1 positional argument but 3 were given
-2018-10-25 17:49:48,667 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:85]
-2018-10-25 20:24:49,344 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:85]
-2018-10-26 08:52:06,953 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:85]
-2018-10-26 15:59:07,665 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:85]
-2018-10-29 17:06:24,094 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:88]
-2018-10-29 17:07:06,421 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:89]
-2018-10-29 17:08:05,914 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:89]
-2018-10-29 18:14:13,602 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:88]
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\PycharmProjects\FlaskWeb\app\templates\index.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 21, in block "body"
+    {% block navbar %}
+  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 30, in block "navbar"
+    {{ g.search_form.q(size=20, class='form-control', placeholder=g.search_form.q.label.text) }}
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'wtforms.fields.core.UnboundField object' has no attribute 'label'
+2018-10-30 12:18:55,991 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:88]
