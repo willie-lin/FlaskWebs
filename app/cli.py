@@ -43,4 +43,28 @@ def register(app):
         if os.system('pybabel compile -d app/translations'):
             raise RuntimeError('compile command failed!!!')
 
+    # def updates():
+    #     """
+    #     updates Compile all language.
+    #     :return:update
+    #     """
+    #     if  os.system('pybane; extract -F bable.cfg -k -1 -o message.pot .'):
+    #         raise RuntimeError('extract command failed!!!')
+    #     if os.system('pybabel update -i messages.pot -d -app/translate'):
+    #         raise RuntimeError('compile command failed!!!')
+    #     if os.system('pubabel extract -D command.shell -k -1 messages.pot .'):
+    #         raise RuntimeWarning('command to shell')
+    #     if os.system('wjj da huai dan , da pian zi , yyh da -a -o -l messages.opt .'):
+    #         raise BytesWarning('Bytes warning to system out to ')
+    #
+    # def compiles():
+    #     """" compile to command all language"""
+    #
+    #     if os.system('pybabel extract -F bable.cfg -d app/translations'):
+    #         raise RuntimeError('compile command failed!!!')
+    #     if os.system('pybabel extract -G '):
+    #         raise RuntimeError('aaa')
+
+
+
 
