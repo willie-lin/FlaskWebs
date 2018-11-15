@@ -1,4 +1,4 @@
-2018-11-14 11:35:27,966 ERROR: Exception on / [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
+2018-11-15 21:03:08,530 ERROR: Exception on /api/users/1 [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,40 +12,36 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\PycharmProjects\FlaskWeb\app\main\routes.py", line 77, in index
-    prev_url=prev_url)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 135, in render_template
-    context, ctx.app)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 117, in _render
-    rv = template.render(context)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "D:\PycharmProjects\FlaskWeb\app\templates\index.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
-  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 21, in block "body"
-    {% block navbar %}
-  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 28, in block "navbar"
-    {{ g.search_form.q(size=20, class='form-control', placeholder=g.search_form.q.label.text) }}
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\environment.py", line 430, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'wtforms.fields.core.UnboundField object' has no attribute 'label'
-2018-11-14 11:35:34,466 ERROR: Exception on /index [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
+  File "D:\PycharmProjects\FlaskWeb\app\api\users.py", line 17, in get_user
+    return jsonify(User.query.get_or_404(id).to_dict())
+  File "D:\Anaconda3\lib\site-packages\flask_sqlalchemy\__init__.py", line 417, in get_or_404
+    rv = self.get(ident)
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\query.py", line 864, in get
+    return self._get_impl(ident, loading.load_on_ident)
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\query.py", line 897, in _get_impl
+    return fallback_fn(self, key)
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\loading.py", line 223, in load_on_ident
+    return q.one()
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\query.py", line 2814, in one
+    ret = self.one_or_none()
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\query.py", line 2784, in one_or_none
+    ret = list(self)
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\loading.py", line 90, in instances
+    util.raise_from_cause(err)
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\util\compat.py", line 187, in reraise
+    raise value
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\loading.py", line 75, in instances
+    rows = [proc(row) for row in fetch]
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\loading.py", line 75, in <listcomp>
+    rows = [proc(row) for row in fetch]
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\loading.py", line 437, in _instance
+    loaded_instance, populate_existing, populators)
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\loading.py", line 498, in _populate_full
+    dict_[key] = getter(row)
+ValueError: Couldn't parse datetime string '1540264690476' - value is not a string.
+2018-11-15 21:14:06,286 ERROR: Exception on /api/users/3 [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -59,36 +55,9 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "D:\PycharmProjects\FlaskWeb\app\main\routes.py", line 77, in index
-    prev_url=prev_url)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 135, in render_template
-    context, ctx.app)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 117, in _render
-    rv = template.render(context)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "D:\PycharmProjects\FlaskWeb\app\templates\index.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
-  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 21, in block "body"
-    {% block navbar %}
-  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 28, in block "navbar"
-    {{ g.search_form.q(size=20, class='form-control', placeholder=g.search_form.q.label.text) }}
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\environment.py", line 430, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'wtforms.fields.core.UnboundField object' has no attribute 'label'
+  File "D:\PycharmProjects\FlaskWeb\app\api\users.py", line 17, in get_user
+    return jsonify(User.query.get_or_404(id).to_dict())
+  File "D:\PycharmProjects\FlaskWeb\app\models.py", line 114, in to_dict
+    'last_date': self.last_date.isoformat() + 'Z',
+AttributeError: 'NoneType' object has no attribute 'isoformat'
+2018-11-15 21:18:25,045 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:90]
