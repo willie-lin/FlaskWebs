@@ -8,9 +8,11 @@
         </td>
         <td style="word-wrap: break-word">
             {% set user_link %}
-            <a href="{{ url_for('main.user', username=post.author.username) }}">
+            <span class="user_popup">
+                <a href="{{ url_for('main.user', username=post.author.username) }}">
                     {{ post.author.username }}
-                </a><b>:</b>
+                </a>
+            </span><b>:</b>
             {% endset %}
             <br>
 
