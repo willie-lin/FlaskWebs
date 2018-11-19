@@ -1,4 +1,4 @@
-2018-11-16 16:14:05,772 ERROR: Exception on /search [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
+2018-11-19 18:36:03,973 ERROR: Exception on /user/mbl/popup [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,36 +14,32 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\PycharmProjects\FlaskWeb\app\main\routes.py", line 43, in search
-    posts, total = Post.search(g.search_form.q.data, page, current_app.config['POSTS_PER_PAGE'])
-  File "D:\PycharmProjects\FlaskWeb\app\models.py", line 24, in search
-    ids, total = query_index(cls.__tablename__, expression, page, per_page)
-  File "D:\PycharmProjects\FlaskWeb\app\search.py", line 60, in query_index
-    'from': (page - 1) * per_page, 'size': per_page})
-  File "D:\Anaconda3\lib\site-packages\elasticsearch\client\utils.py", line 76, in _wrapped
-    return func(*args, params=params, **kwargs)
-  File "D:\Anaconda3\lib\site-packages\elasticsearch\client\__init__.py", line 660, in search
-    doc_type, '_search'), params=params, body=body)
-  File "D:\Anaconda3\lib\site-packages\elasticsearch\transport.py", line 318, in perform_request
-    status, headers_response, data = connection.perform_request(method, url, params, body, headers=headers, ignore=ignore, timeout=timeout)
-  File "D:\Anaconda3\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 186, in perform_request
-    self._raise_error(response.status, raw_data)
-  File "D:\Anaconda3\lib\site-packages\elasticsearch\connection\base.py", line 125, in _raise_error
-    raise HTTP_EXCEPTIONS.get(status_code, TransportError)(status_code, error_message, additional_info)
-elasticsearch.exceptions.NotFoundError: NotFoundError(404, 'index_not_found_exception', 'no such index')
-2018-11-16 16:37:08,665 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:90]
-2018-11-16 16:45:11,944 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:90]
-2018-11-16 16:49:48,732 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:90]
-2018-11-16 18:05:43,730 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:90]
-2018-11-16 19:01:04,092 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:90]
-2018-11-16 19:01:43,254 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:90]
-2018-11-16 19:08:27,629 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:90]
-2018-11-16 19:12:11,448 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:90]
-2018-11-16 19:22:08,463 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:90]
-2018-11-16 19:27:43,418 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:90]
-2018-11-16 19:29:12,790 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:90]
-2018-11-16 19:30:49,405 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:90]
-2018-11-16 19:33:51,185 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:90]
-2018-11-16 19:35:44,301 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:90]
-2018-11-16 19:36:19,255 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:90]
-2018-11-16 19:36:52,013 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:90]
+  File "D:\PycharmProjects\FlaskWeb\app\main\routes.py", line 202, in user_popup
+    return render_template('user_popup.html', user=user)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 135, in render_template
+    context, ctx.app)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 117, in _render
+    rv = template.render(context)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "D:\PycharmProjects\FlaskWeb\app\templates\user_popup.html", line 27, in top-level template code
+    <a href="{{ url_for('main.unfollow', username=user.username) }}">
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
+    force_external=external)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\werkzeug\routing.py", line 1776, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'main.unfollow' with values ['username']. Did you mean 'main.un_follow' instead?
+2018-11-19 18:41:10,640 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:90]
+2018-11-19 18:46:25,941 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:90]

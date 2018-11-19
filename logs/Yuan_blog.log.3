@@ -1,4 +1,13 @@
-2018-11-15 16:30:36,353 ERROR: Exception on /api/users/1 [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
+2018-11-19 15:17:20,652 ERROR: Exception on / [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 1182, in _execute_context
+    context)
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\engine\default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: user.last_message_read_time
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
   File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -8,93 +17,28 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
     raise value
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "D:\PycharmProjects\FlaskWeb\app\api\users.py", line 17, in get_user
-    return jsonify(User.query.get_or_404(id).to_dict())
-  File "D:\PycharmProjects\FlaskWeb\app\models.py", line 173, in to_dict
-    'last_date': self.last_date.isoformat() + 'Z',
-AttributeError: 'NoneType' object has no attribute 'isoformat'
-2018-11-15 16:31:08,570 ERROR: Exception on /api/users/1 [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "D:\PycharmProjects\FlaskWeb\app\api\users.py", line 17, in get_user
-    return jsonify(User.query.get_or_404(id).to_dict())
-  File "D:\PycharmProjects\FlaskWeb\app\models.py", line 173, in to_dict
-    'last_date': self.last_date.isoformat() + 'Z',
-AttributeError: 'NoneType' object has no attribute 'isoformat'
-2018-11-15 16:33:10,357 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:90]
-2018-11-15 16:34:06,712 ERROR: Exception on /api/users/1 [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "D:\PycharmProjects\FlaskWeb\app\api\users.py", line 17, in get_user
-    return jsonify(User.query.get_or_404(id).to_dict())
-  File "D:\PycharmProjects\FlaskWeb\app\models.py", line 173, in to_dict
-    'last_date': self.last_date.isoformat() + 'Z',
-AttributeError: 'NoneType' object has no attribute 'isoformat'
-2018-11-15 20:53:50,984 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:90]
-2018-11-15 20:57:47,300 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:90]
-2018-11-15 20:58:46,794 ERROR: Exception on /api/users/1 [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "D:\PycharmProjects\FlaskWeb\app\api\users.py", line 17, in get_user
-    return jsonify(User.query.get_or_404(id).to_dict())
-  File "D:\PycharmProjects\FlaskWeb\app\models.py", line 114, in to_dict
-    'last_date': self.last_date.isoformat() + 'Z',
-AttributeError: 'NoneType' object has no attribute 'isoformat'
-2018-11-15 21:01:45,636 ERROR: Exception on /api/users/1 [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "D:\PycharmProjects\FlaskWeb\app\api\users.py", line 17, in get_user
-    return jsonify(User.query.get_or_404(id).to_dict())
-  File "D:\Anaconda3\lib\site-packages\flask_sqlalchemy\__init__.py", line 417, in get_or_404
-    rv = self.get(ident)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2087, in preprocess_request
+    rv = func()
+  File "D:\PycharmProjects\FlaskWeb\app\main\routes.py", line 23, in before_request
+    if current_user.is_authenticated:
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\werkzeug\local.py", line 306, in _get_current_object
+    return self.__local()
+  File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 26, in <lambda>
+    current_user = LocalProxy(lambda: _get_user())
+  File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 335, in _get_user
+    current_app.login_manager._load_user()
+  File "D:\Anaconda3\lib\site-packages\flask_login\login_manager.py", line 353, in _load_user
+    return self._load_from_cookie(request.cookies[cookie_name])
+  File "D:\Anaconda3\lib\site-packages\flask_login\login_manager.py", line 392, in _load_from_cookie
+    self.reload_user()
+  File "D:\Anaconda3\lib\site-packages\flask_login\login_manager.py", line 321, in reload_user
+    user = self.user_callback(user_id)
+  File "D:\PycharmProjects\FlaskWeb\app\models.py", line 250, in load_user
+    return User.query.get(int(id))
   File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\query.py", line 864, in get
     return self._get_impl(ident, loading.load_on_ident)
   File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\query.py", line 897, in _get_impl
@@ -105,18 +49,26 @@ Traceback (most recent call last):
     ret = self.one_or_none()
   File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\query.py", line 2784, in one_or_none
     ret = list(self)
-  File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\loading.py", line 90, in instances
-    util.raise_from_cause(err)
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\query.py", line 2855, in __iter__
+    return self._execute_and_instances(context)
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\query.py", line 2878, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\sql\elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 1189, in _execute_context
+    context)
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 1402, in _handle_dbapi_exception
+    exc_info
   File "D:\Anaconda3\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
     reraise(type(exception), exception, tb=exc_tb, cause=cause)
-  File "D:\Anaconda3\lib\site-packages\sqlalchemy\util\compat.py", line 187, in reraise
-    raise value
-  File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\loading.py", line 75, in instances
-    rows = [proc(row) for row in fetch]
-  File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\loading.py", line 75, in <listcomp>
-    rows = [proc(row) for row in fetch]
-  File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\loading.py", line 437, in _instance
-    loaded_instance, populate_existing, populators)
-  File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\loading.py", line 498, in _populate_full
-    dict_[key] = getter(row)
-ValueError: Couldn't parse datetime string '1539944274787' - value is not a string.
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\util\compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 1182, in _execute_context
+    context)
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\engine\default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: user.last_message_read_time [SQL: 'SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_date AS user_last_date, user.last_message_read_time AS user_last_message_read_time \nFROM user \nWHERE user.id = ?'] [parameters: (3,)]

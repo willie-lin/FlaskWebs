@@ -1,5 +1,4 @@
-2018-10-30 11:02:48,334 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:88]
-2018-10-30 11:03:01,095 ERROR: Exception on / [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
+2018-11-16 19:38:55,278 ERROR: Exception on /user/admin/popup [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -15,8 +14,8 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\PycharmProjects\FlaskWeb\app\main\routes.py", line 91, in index
-    prev_url=prev_url)
+  File "D:\PycharmProjects\FlaskWeb\app\main\routes.py", line 200, in user_popup
+    return render_template('user_popup.html', user=user)
   File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 135, in render_template
     context, ctx.app)
   File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 117, in _render
@@ -29,23 +28,21 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "D:\PycharmProjects\FlaskWeb\app\templates\index.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
-  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 21, in block "body"
-    {% block navbar %}
-  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 30, in block "navbar"
-    {{ g.search_form.q(size=20, class='form-control', placeholder=g.search_form.q.data) }}
-TypeError: 'UnboundField' object is not callable
-2018-10-30 11:28:25,587 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:88]
-2018-10-30 11:29:18,055 ERROR: Exception on / [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
+  File "D:\PycharmProjects\FlaskWeb\app\templates\user_popup.html", line 27, in top-level template code
+    <a href="{{ url_for('main.unfollow', username=user.username) }}">
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
+    force_external=external)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\werkzeug\routing.py", line 1776, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'main.unfollow' with values ['username']. Did you mean 'main.un_follow' instead?
+2018-11-16 19:39:13,371 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:90]
+2018-11-16 19:39:20,227 ERROR: Exception on /user/admin/popup [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -61,8 +58,8 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\PycharmProjects\FlaskWeb\app\main\routes.py", line 91, in index
-    prev_url=prev_url)
+  File "D:\PycharmProjects\FlaskWeb\app\main\routes.py", line 200, in user_popup
+    return render_template('user_popup.html', user=user)
   File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 135, in render_template
     context, ctx.app)
   File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 117, in _render
@@ -75,24 +72,20 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "D:\PycharmProjects\FlaskWeb\app\templates\index.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
-  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 21, in block "body"
-    {% block navbar %}
-  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 30, in block "navbar"
-    {{ g.search_form.q(size=20, class='form-control', placeholder=g.search_form.q.label.text) }}
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\environment.py", line 430, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'wtforms.fields.core.UnboundField object' has no attribute 'label'
-2018-10-30 11:29:26,807 ERROR: Exception on / [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
+  File "D:\PycharmProjects\FlaskWeb\app\templates\user_popup.html", line 27, in top-level template code
+    <a href="{{ url_for('main.unfollow', username=user.username) }}">
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
+    force_external=external)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\werkzeug\routing.py", line 1776, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'main.unfollow' with values ['username']. Did you mean 'main.un_follow' instead?
+2018-11-16 19:39:25,273 ERROR: Exception on /user/admin/popup [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -108,8 +101,8 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\PycharmProjects\FlaskWeb\app\main\routes.py", line 91, in index
-    prev_url=prev_url)
+  File "D:\PycharmProjects\FlaskWeb\app\main\routes.py", line 200, in user_popup
+    return render_template('user_popup.html', user=user)
   File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 135, in render_template
     context, ctx.app)
   File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 117, in _render
@@ -122,20 +115,16 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "D:\PycharmProjects\FlaskWeb\app\templates\index.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
-  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 21, in block "body"
-    {% block navbar %}
-  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 30, in block "navbar"
-    {{ g.search_form.q(size=20, class='form-control', placeholder=g.search_form.q.label.text) }}
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\environment.py", line 430, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'wtforms.fields.core.UnboundField object' has no attribute 'label'
+  File "D:\PycharmProjects\FlaskWeb\app\templates\user_popup.html", line 27, in top-level template code
+    <a href="{{ url_for('main.unfollow', username=user.username) }}">
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2061, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\helpers.py", line 345, in url_for
+    force_external=external)
+  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\werkzeug\routing.py", line 1776, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'main.unfollow' with values ['username']. Did you mean 'main.un_follow' instead?

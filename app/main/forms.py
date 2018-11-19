@@ -32,13 +32,13 @@ class EditProfileForm(FlaskForm):
 
 # 提交表单
 class PostForm(FlaskForm):
-    post = TextAreaField(_l('Say something'), validators=[DataRequired()])
+    post = TextAreaField(_l('Say something'), validators=[DataRequired(), Length(min=0, max=144)])
     submit = SubmitField(_l('Submit'))
 
 
 # 搜索表单
 class SearchForm(FlaskForm):
-    q = StringField(_l('Search'), validators=[DataRequired()])
+    q = StringField(_l('Search'), validators=[DataRequired(), Length(min=0, max=140)])
 
     def __init__(self, *args, **kwargs):
         if 'formdata' not in kwargs:
@@ -46,3 +46,9 @@ class SearchForm(FlaskForm):
         if 'csrf_enabled' not in kwargs:
             kwargs['csrf_enabled'] = False
         super(SearchForm, self).__init__(*args, **kwargs)
+
+
+# 私信表单
+class MessageForm(FlaskForm):
+    message = TextAreaField(_l('Message'), validators=[DataRequired(), Length(min=0, max=140)])
+    submit = SubmitField(_l('Submit'))

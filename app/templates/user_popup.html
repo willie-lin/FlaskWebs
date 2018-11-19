@@ -24,7 +24,7 @@
                 {{ _('Follow') }}
                 </a>
                     {% else %}
-                    <a href="{{ url_for('main.unfollow', username=user.username) }}">
+                    <a href="{{ url_for('main.un_follow', username=user.username) }}">
                     {{ _('UnFollow') }}
                     </a>
                 {% endif %}

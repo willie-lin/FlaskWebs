@@ -1,4 +1,46 @@
-2018-10-30 12:18:58,520 ERROR: Exception on / [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
+2018-11-19 09:17:05,526 ERROR: Exception on / [POST] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "D:\Anaconda3\lib\site-packages\urllib3\connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "D:\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 83, in create_connection
+    raise err
+  File "D:\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Anaconda3\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 172, in perform_request
+    response = self.pool.urlopen(method, url, body, retries=Retry(False), headers=request_headers, **kw)
+  File "D:\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 649, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "D:\Anaconda3\lib\site-packages\urllib3\util\retry.py", line 333, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "D:\Anaconda3\lib\site-packages\urllib3\packages\six.py", line 686, in reraise
+    raise value
+  File "D:\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "D:\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 356, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "D:\Anaconda3\lib\http\client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "D:\Anaconda3\lib\http\client.py", line 1285, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "D:\Anaconda3\lib\http\client.py", line 1234, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "D:\Anaconda3\lib\http\client.py", line 1026, in _send_output
+    self.send(msg)
+  File "D:\Anaconda3\lib\http\client.py", line 964, in send
+    self.connect()
+  File "D:\Anaconda3\lib\site-packages\urllib3\connection.py", line 166, in connect
+    conn = self._new_conn()
+  File "D:\Anaconda3\lib\site-packages\urllib3\connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x00000227E6E43C18>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,40 +56,30 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\PycharmProjects\FlaskWeb\app\main\routes.py", line 91, in index
-    prev_url=prev_url)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 135, in render_template
-    context, ctx.app)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 117, in _render
-    rv = template.render(context)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "D:\PycharmProjects\FlaskWeb\app\templates\index.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
-  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 21, in block "body"
-    {% block navbar %}
-  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 30, in block "navbar"
-    {{ g.search_form.q(size=20, class='form-control', placeholder=g.search_form.q.label.text) }}
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\environment.py", line 430, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'wtforms.fields.core.UnboundField object' has no attribute 'label'
-2018-10-30 15:01:23,878 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:88]
-2018-10-30 15:05:28,432 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:88]
-2018-10-30 15:05:34,373 ERROR: Exception on / [GET] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
+  File "D:\PycharmProjects\FlaskWeb\app\main\routes.py", line 78, in index
+    db.session.commit()
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\scoping.py", line 157, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\session.py", line 906, in commit
+    self.transaction.commit()
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\orm\session.py", line 468, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "D:\Anaconda3\lib\site-packages\sqlalchemy\event\attr.py", line 218, in __call__
+    fn(*args, **kw)
+  File "D:\PycharmProjects\FlaskWeb\app\models.py", line 88, in after_commit
+    add_to_index(obj.__tablename__, obj)
+  File "D:\PycharmProjects\FlaskWeb\app\search.py", line 45, in add_to_index
+    body=payload)
+  File "D:\Anaconda3\lib\site-packages\elasticsearch\client\utils.py", line 76, in _wrapped
+    return func(*args, params=params, **kwargs)
+  File "D:\Anaconda3\lib\site-packages\elasticsearch\client\__init__.py", line 319, in index
+    _make_path(index, doc_type, id), params=params, body=body)
+  File "D:\Anaconda3\lib\site-packages\elasticsearch\transport.py", line 318, in perform_request
+    status, headers_response, data = connection.perform_request(method, url, params, body, headers=headers, ignore=ignore, timeout=timeout)
+  File "D:\Anaconda3\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 181, in perform_request
+    raise ConnectionError('N/A', str(e), e)
+elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x00000227E6E43C18>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x00000227E6E43C18>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。)
+2018-11-19 09:20:58,330 ERROR: Exception on /translate [POST] [in D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -63,35 +95,7 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "D:\Anaconda3\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\PycharmProjects\FlaskWeb\app\main\routes.py", line 91, in index
-    prev_url=prev_url)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 135, in render_template
-    context, ctx.app)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\flask\templating.py", line 117, in _render
-    rv = template.render(context)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "D:\PycharmProjects\FlaskWeb\app\templates\index.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
-  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "D:\Anaconda3\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 21, in block "body"
-    {% block navbar %}
-  File "D:\PycharmProjects\FlaskWeb\app\templates\base.html", line 28, in block "navbar"
-    {{ g.search_form.q(size=20, class='form-control', placeholder=g.search_form.q.label.text) }}
-  File "D:\PycharmProjects\FlaskWeb\venv\lib\site-packages\jinja2\environment.py", line 430, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'wtforms.fields.core.UnboundField object' has no attribute 'label'
-2018-10-30 15:46:29,634 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:88]
+  File "D:\PycharmProjects\FlaskWeb\app\main\routes.py", line 34, in translate_text
+    return jsonify({'text': translate(request.form['text'], request.form['source_language'],request.form['dest_language'])})
+TypeError: translate() takes 1 positional argument but 3 were given
+2018-11-19 15:16:06,871 INFO: Yuan_blog startup [in D:\PycharmProjects\FlaskWeb\app\__init__.py:90]
