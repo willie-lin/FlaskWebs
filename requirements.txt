@@ -75,7 +75,7 @@ inflection==0.3.1
 intel-numpy==1.14.3
 intel-openmp==2019.0
 ipykernel==4.8.2
-ipython==6.3.1
+ipython==7.16.3
 ipython-genutils==0.2.0
 ipywidgets==7.2.0
 isort==4.3.4
