@@ -159,7 +159,7 @@ pyflakes==1.6.0
 pygeoip==0.3.2
 Pygments==2.2.0
 PyHamcrest==1.9.0
-PyJWT==1.6.4
+PyJWT==2.4.0
 pylint==1.8.4
 pymongo==3.6.1
 pyodbc==4.0.23
